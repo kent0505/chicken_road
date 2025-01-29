@@ -9,7 +9,7 @@ bool onboard = true;
 
 Future<void> getData() async {
   final prefs = await SharedPreferences.getInstance();
-  await prefs.clear();
+  // await prefs.clear();
   background = prefs.getInt('background') ?? 1;
   coins = prefs.getInt('coins') ?? 1000;
   onboard = prefs.getBool('onboard') ?? true;

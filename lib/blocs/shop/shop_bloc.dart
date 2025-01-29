@@ -17,7 +17,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
       await getShops();
       await getData();
 
-      await Future.delayed(Duration(seconds: 2), () {
+      await Future.delayed(Duration(seconds: 4), () {
         emit(ShopLoaded(shop: shopsList[0]));
       });
     });

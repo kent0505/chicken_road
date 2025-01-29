@@ -16,10 +16,19 @@ class MyScaffold extends StatelessWidget {
         children: [
           BlocBuilder<ShopBloc, ShopState>(
             builder: (context, state) {
-              return Image.asset(
-                'assets/bg/bg$background.png',
-                width: double.infinity,
-                fit: BoxFit.fitWidth,
+              return AnimatedSwitcher(
+                duration: Duration(seconds: 1),
+                transitionBuilder: (widget, animation) {
+                  return FadeTransition(opacity: animation, child: widget);
+                },
+                child: Image.asset(
+                  'assets/bg/bg$background.png',
+                  width: double.infinity,
+                  fit: BoxFit.fitWidth,
+                  key: ValueKey<bool>(
+                    state is ShopLoaded && state.shop.id == background,
+                  ),
+                ),
               );
             },
           ),

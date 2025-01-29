@@ -49,7 +49,8 @@ class ShopPage extends StatelessWidget {
           Spacer(),
           BlocBuilder<ShopBloc, ShopState>(
             builder: (context, state) {
-              if (state is ShopLoaded && state.shop.price <= coins) {
+              if (state is ShopLoaded && state.shop.price <= coins ||
+                  state is ShopLoaded && state.shop.bought) {
                 return MainButton(
                   title: state.shop.bought ? 'SELECT' : 'BUY',
                   price: state.shop.bought ? 0 : state.shop.price,

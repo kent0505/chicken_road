@@ -23,7 +23,7 @@ class ShopItem extends StatelessWidget {
                     context.read<ShopBloc>().add(TapItem(shop: shop));
                   },
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 300),
+              duration: Duration(milliseconds: 400),
               height: 200,
               width: MediaQuery.of(context).size.width / 3 - 30,
               decoration: BoxDecoration(
@@ -90,11 +90,13 @@ class ShopItem extends StatelessWidget {
                         ],
                       ),
                     ),
-                  if (background == shop.id)
-                    Positioned(
-                      bottom: 26,
-                      left: 0,
-                      right: 0,
+                  Positioned(
+                    bottom: 26,
+                    left: 0,
+                    right: 0,
+                    child: AnimatedOpacity(
+                      duration: Duration(milliseconds: 400),
+                      opacity: background == shop.id ? 1 : 0,
                       child: Center(
                         child: Text(
                           'SELECTED',
@@ -106,6 +108,7 @@ class ShopItem extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ),
                 ],
               ),
             ),

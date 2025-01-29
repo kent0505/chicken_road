@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/shop/shop_bloc.dart';
 import '../core/utils.dart';
+import '../widgets/loading_text.dart';
 import 'home_page.dart';
 import 'onboard_page.dart';
 
@@ -47,14 +48,7 @@ class SplashPage extends StatelessWidget {
                     ),
                     SizedBox(height: 50),
                     Center(
-                      child: Text(
-                        'Loading...',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontFamily: 'w700',
-                        ),
-                      ),
+                      child: LoadingText(),
                     ),
                     SizedBox(height: 100),
                   ],
