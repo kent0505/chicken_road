@@ -138,7 +138,7 @@ class _OnboardPageState extends State<OnboardPage> {
                     children: [
                       _ItemCard(id: 0),
                       SizedBox(width: 20),
-                      _ItemCard(id: 3),
+                      _ItemCard(id: 2, green: true),
                       SizedBox(width: 20),
                       _ItemCard(id: 0),
                     ],
@@ -151,14 +151,14 @@ class _OnboardPageState extends State<OnboardPage> {
                       SizedBox(width: 20),
                       _ItemCard(id: 0),
                       SizedBox(width: 20),
-                      _ItemCard(id: 0),
+                      _ItemCard(id: 2, green: true),
                     ],
                   ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _ItemCard(id: 9),
+                      _ItemCard(id: 8, red: true),
                       SizedBox(width: 20),
                       _ItemCard(id: 0),
                       SizedBox(width: 20),
@@ -190,9 +190,15 @@ class _OnboardPageState extends State<OnboardPage> {
 }
 
 class _ItemCard extends StatelessWidget {
-  const _ItemCard({required this.id});
+  const _ItemCard({
+    required this.id,
+    this.green = false,
+    this.red = false,
+  });
 
   final int id;
+  final bool green;
+  final bool red;
 
   @override
   Widget build(BuildContext context) {
@@ -219,6 +225,16 @@ class _ItemCard extends StatelessWidget {
             offset: Offset(0, 6),
             color: Color(0xff464866),
           ),
+          if (green)
+            BoxShadow(
+              color: Color(0xff00E334).withValues(alpha: 0.5),
+              blurRadius: 30,
+            ),
+          if (red)
+            BoxShadow(
+              color: Color(0xffE30000).withValues(alpha: 0.5),
+              blurRadius: 30,
+            ),
         ],
       ),
       child: Center(
