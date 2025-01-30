@@ -12,11 +12,9 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
     on<LoadShop>((event, emit) async {
       await Future.delayed(Duration(seconds: 1));
       emit(ShopLoading());
-
-      await initHive();
+      await getHive();
       await getShops();
       await getData();
-
       await Future.delayed(Duration(seconds: 4), () {
         emit(ShopLoaded(shop: shopsList[0]));
       });

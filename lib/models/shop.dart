@@ -36,5 +36,3 @@ class ShopAdapter extends TypeAdapter<Shop> {
     writer.writeBool(obj.bought);
   }
 }
-
-Shop defaultShop = Shop(id: 0, price: 0, bought: false);

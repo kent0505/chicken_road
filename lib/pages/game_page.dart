@@ -308,10 +308,13 @@ class ItemCard extends StatelessWidget {
           ],
         ),
         child: Center(
-          child: Image.asset(
-            item.active
-                ? 'assets/items/item${item.id}.png'
-                : 'assets/items/item0.png',
+          child: RotationTransition(
+            turns: AlwaysStoppedAnimation(!item.active ? -20 / 360 : 0 / 360),
+            child: Image.asset(
+              item.active
+                  ? 'assets/items/item${item.id}.png'
+                  : 'assets/items/item0.png',
+            ),
           ),
         ),
       ),

@@ -10,7 +10,6 @@ List<String> stats = [];
 
 Future<void> getData() async {
   final prefs = await SharedPreferences.getInstance();
-  await prefs.clear();
   background = prefs.getInt('background') ?? 1;
   coins = prefs.getInt('coins') ?? 1000;
   onboard = prefs.getBool('onboard') ?? true;
@@ -41,20 +40,19 @@ List<Shop> shopsList = [
   Shop(id: 6, price: 1500, bought: false),
 ];
 
-Future<void> initHive() async {
+Future<void> getHive() async {
   await Hive.initFlutter();
-  // await Hive.deleteBoxFromDisk('chicken_road_box');
   Hive.registerAdapter(ShopAdapter());
 }
 
 Future<void> getShops() async {
-  final box = await Hive.openBox('chicken_road_box');
-  List data = box.get('shops') ?? shopsList;
-  shopsList = data.cast<Shop>();
+  final h = await Hive.openBox('chicken_road_box');
+  List list = h.get('shops') ?? shopsList;
+  shopsList = list.cast<Shop>();
 }
 
 Future<void> updateShops() async {
-  final box = await Hive.openBox('chicken_road_box');
-  box.put('shops', shopsList);
-  shopsList = await box.get('shops');
+  final h = await Hive.openBox('chicken_road_box');
+  h.put('shops', shopsList);
+  shopsList = await h.get('shops');
 }

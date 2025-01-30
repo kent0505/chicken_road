@@ -239,7 +239,7 @@ class _ItemCard extends StatelessWidget {
       ),
       child: Center(
         child: RotationTransition(
-          turns: AlwaysStoppedAnimation(id == 2 ? -20 / 360 : 0 / 360),
+          turns: AlwaysStoppedAnimation(id == 0 ? -20 / 360 : 0 / 360),
           child: Image.asset('assets/items/item$id.png'),
         ),
       ),
