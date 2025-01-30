@@ -46,19 +46,26 @@ class StatsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                ListView(
-                  children: List.generate(
-                    stats.length,
-                    (index) {
-                      return Text(
-                        stats[index],
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'w700',
-                        ),
-                      );
-                    },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: ListView(
+                      padding: EdgeInsets.all(40),
+                      children: List.generate(
+                        stats.length,
+                        (index) {
+                          return Text(
+                            stats[index],
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'w700',
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ),
                 ),
               ],
