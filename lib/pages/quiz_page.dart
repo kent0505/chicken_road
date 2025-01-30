@@ -77,6 +77,7 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   void onNext() async {
+    _timer?.cancel();
     if (index == 14) {
       await showDialog(
         context: context,
@@ -87,7 +88,6 @@ class _QuizPageState extends State<QuizPage> {
       );
       resetState();
     } else {
-      _timer?.cancel();
       setState(() {
         index++;
         if (selected.correct) corrects++;
@@ -186,7 +186,7 @@ class _QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 270,
+      height: MediaQuery.of(context).size.width < 380 ? 170 : 270,
       margin: EdgeInsets.symmetric(horizontal: 20),
       child: Stack(
         fit: StackFit.expand,
@@ -257,7 +257,7 @@ class _AnswerButton extends StatelessWidget {
         onPressed(answer);
       },
       child: SizedBox(
-        height: 70,
+        height: MediaQuery.of(context).size.width < 380 ? 50 : 70,
         width: MediaQuery.of(context).size.width / 2 - 30,
         child: Stack(
           children: [

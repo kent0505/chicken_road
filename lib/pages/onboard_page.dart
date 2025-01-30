@@ -128,14 +128,9 @@ class _OnboardPageState extends State<OnboardPage> {
                     ),
                   ),
                   Spacer(),
-                  Row(
-                    children: [
-                      SizedBox(width: 20),
-                      SvgPicture.asset(
-                        'assets/o2.svg',
-                        height: 60,
-                      ),
-                    ],
+                  SvgPicture.asset(
+                    'assets/o2.svg',
+                    height: 60,
                   ),
                   Spacer(),
                   Row(
@@ -202,8 +197,8 @@ class _ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.width / 3 - 30,
-      width: MediaQuery.of(context).size.width / 3 - 30,
+      height: MediaQuery.of(context).size.width < 380 ? 70 : 100,
+      width: MediaQuery.of(context).size.width < 380 ? 70 : 100,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),

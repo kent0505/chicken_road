@@ -13,6 +13,7 @@ class ShopItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
     return BlocBuilder<ShopBloc, ShopState>(
       builder: (context, state) {
         if (state is ShopLoaded) {
@@ -24,8 +25,8 @@ class ShopItem extends StatelessWidget {
                   },
             child: AnimatedContainer(
               duration: Duration(milliseconds: 400),
-              height: 200,
-              width: MediaQuery.of(context).size.width / 3 - 30,
+              height: MediaQuery.of(context).size.width < 380 ? 160 : 200,
+              width: MediaQuery.of(context).size.width < 380 ? 90 : 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: state.shop.id == shop.id

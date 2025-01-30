@@ -283,8 +283,8 @@ class ItemCard extends StatelessWidget {
               onPressed(item);
             },
       child: Container(
-        height: MediaQuery.of(context).size.width / 3 - 30,
-        width: MediaQuery.of(context).size.width / 3 - 30,
+        height: MediaQuery.of(context).size.width < 380 ? 70 : 100,
+        width: MediaQuery.of(context).size.width < 380 ? 70 : 100,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

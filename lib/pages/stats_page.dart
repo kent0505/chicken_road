@@ -47,7 +47,8 @@ class StatsPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(40),
                     child: ListView(

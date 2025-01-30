@@ -60,6 +60,7 @@ class CorrectDialog extends StatelessWidget {
               child: Center(
                 child: Text(
                   'Correct answers $corrects',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
