@@ -18,6 +18,8 @@ class Answer {
   final bool correct;
 }
 
+Answer defaultAnswer = Answer(title: '', correct: false);
+
 List<Quiz> farmQuizzes = [
   Quiz(
     question: "What is the most commonly grown crop in the world?",

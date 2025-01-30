@@ -11,7 +11,7 @@ class MainButton extends StatelessWidget {
   });
 
   final String title;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final int price;
 
   @override
