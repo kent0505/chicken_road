@@ -6,6 +6,7 @@ import '../models/shop.dart';
 int background = 1;
 int coins = 100;
 bool onboard = true;
+List<String> stats = [];
 
 Future<void> getData() async {
   final prefs = await SharedPreferences.getInstance();
@@ -13,6 +14,7 @@ Future<void> getData() async {
   background = prefs.getInt('background') ?? 1;
   coins = prefs.getInt('coins') ?? 1000;
   onboard = prefs.getBool('onboard') ?? true;
+  stats = prefs.getStringList('stats') ?? [];
 }
 
 Future<void> saveInt(String key, int value) async {
@@ -23,6 +25,11 @@ Future<void> saveInt(String key, int value) async {
 Future<void> saveBool(String key, bool value) async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.setBool(key, value);
+}
+
+Future<void> saveStringList(String key, List<String> value) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setStringList(key, value);
 }
 
 List<Shop> shopsList = [

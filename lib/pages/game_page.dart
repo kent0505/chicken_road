@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/shop/shop_bloc.dart';
+import '../core/utils.dart';
 import '../models/item.dart';
 import '../widgets/button.dart';
 import '../widgets/main_button.dart';
@@ -74,12 +75,17 @@ class _GamePageState extends State<GamePage> {
         }
       } else {
         timer.cancel();
-        await showDialog(
-          context: context,
-          builder: (context) {
-            return WinDialog(amount: 0);
-          },
-        );
+        if (stats.length == 20) stats.removeLast();
+        stats.add('Lose');
+        await saveStringList('stats', stats);
+        if (mounted) {
+          await showDialog(
+            context: context,
+            builder: (context) {
+              return WinDialog(amount: 0);
+            },
+          );
+        }
       }
     });
   }
@@ -102,6 +108,9 @@ class _GamePageState extends State<GamePage> {
         if (finished) {
           context.read<ShopBloc>().add(AddCoins());
           _timer?.cancel();
+          if (stats.length == 20) stats.removeLast();
+          stats.add('+250');
+          await saveStringList('stats', stats);
           await Future.delayed(Duration(milliseconds: 500), () {
             if (mounted) {
               showDialog(
