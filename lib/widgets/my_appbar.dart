@@ -9,11 +9,13 @@ class MyAppbar extends StatelessWidget {
     this.title = '',
     this.timer = false,
     this.seconds = 0,
+    this.max = 10,
   });
 
   final String title;
   final bool timer;
   final int seconds;
+  final int max;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class MyAppbar extends StatelessWidget {
                                     child: AnimatedContainer(
                                       duration: Duration(milliseconds: 1000),
                                       height: 10,
-                                      width: (seconds / 10) * 112,
+                                      width: (seconds / max) * 112,
                                       decoration: BoxDecoration(
                                         color: Color(0xff00E334),
                                         borderRadius: BorderRadius.circular(10),

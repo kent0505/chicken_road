@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage('assets/items/item1.png'), context);
     precacheImage(AssetImage('assets/bg/bg0.png'), context);
     precacheImage(AssetImage('assets/bg/bg1.png'), context);
     precacheImage(AssetImage('assets/bg/bg2.png'), context);

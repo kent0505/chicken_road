@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../core/utils.dart';
-import '../widgets/item_card.dart';
 import '../widgets/main_button.dart';
 import 'home_page.dart';
 
@@ -142,33 +141,33 @@ class _OnboardPageState extends State<OnboardPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ItemCard(id: 2),
+                      _ItemCard(id: 0),
                       SizedBox(width: 20),
-                      ItemCard(id: 3),
+                      _ItemCard(id: 3),
                       SizedBox(width: 20),
-                      ItemCard(id: 2),
+                      _ItemCard(id: 0),
                     ],
                   ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ItemCard(id: 2),
+                      _ItemCard(id: 0),
                       SizedBox(width: 20),
-                      ItemCard(id: 2),
+                      _ItemCard(id: 0),
                       SizedBox(width: 20),
-                      ItemCard(id: 3),
+                      _ItemCard(id: 0),
                     ],
                   ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ItemCard(id: 9),
+                      _ItemCard(id: 9),
                       SizedBox(width: 20),
-                      ItemCard(id: 2),
+                      _ItemCard(id: 0),
                       SizedBox(width: 20),
-                      ItemCard(id: 2),
+                      _ItemCard(id: 0),
                     ],
                   ),
                   Spacer(),
@@ -189,6 +188,48 @@ class _OnboardPageState extends State<OnboardPage> {
                 ],
               ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ItemCard extends StatelessWidget {
+  const _ItemCard({required this.id});
+
+  final int id;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.width / 3 - 30,
+      width: MediaQuery.of(context).size.width / 3 - 30,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          width: 4,
+          color: Color(0xff6E78B3),
+        ),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xff585E81),
+            Color(0xff43466E),
+          ],
+        ),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 6),
+            color: Color(0xff464866),
+          ),
+        ],
+      ),
+      child: Center(
+        child: RotationTransition(
+          turns: AlwaysStoppedAnimation(id == 2 ? -20 / 360 : 0 / 360),
+          child: Image.asset('assets/items/item$id.png'),
         ),
       ),
     );

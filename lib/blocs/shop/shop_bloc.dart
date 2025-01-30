@@ -42,5 +42,11 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
       await saveInt('background', background);
       emit(ShopLoaded(shop: event.shop));
     });
+
+    on<AddCoins>((event, emit) async {
+      coins += 250;
+      await saveInt('coins', coins);
+      emit(ShopLoaded(shop: shopsList[0]));
+    });
   }
 }

@@ -14,6 +14,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage('assets/items/item0.png'), context);
+    precacheImage(AssetImage('assets/items/item1.png'), context);
+    precacheImage(AssetImage('assets/items/item2.png'), context);
+    precacheImage(AssetImage('assets/items/item3.png'), context);
+    precacheImage(AssetImage('assets/items/item4.png'), context);
+    precacheImage(AssetImage('assets/items/item5.png'), context);
+    precacheImage(AssetImage('assets/items/item6.png'), context);
+    precacheImage(AssetImage('assets/items/item7.png'), context);
+    precacheImage(AssetImage('assets/items/item8.png'), context);
+    precacheImage(AssetImage('assets/items/item9.png'), context);
+    precacheImage(AssetImage('assets/items/item10.png'), context);
+    precacheImage(AssetImage('assets/items/item11.png'), context);
+    precacheImage(AssetImage('assets/items/item12.png'), context);
+    precacheImage(AssetImage('assets/items/item13.png'), context);
+    precacheImage(AssetImage('assets/items/item14.png'), context);
+
     return MyScaffold(
       body: Center(
         child: Column(

@@ -22,3 +22,5 @@ class SelectItem extends ShopEvent {
 
   final Shop shop;
 }
+
+class AddCoins extends ShopEvent {}
